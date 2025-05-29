@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
 class NewsAdapter(
     val context : Context,
@@ -20,6 +21,13 @@ class NewsAdapter(
     }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
+        holder.title.text = data[position].title
+        holder.date.text = data[position].publishedAt
+        holder.description.text = data[position].description
+        holder.url.text = data[position].url
+        Picasso.get().load(data[position].image).into(holder.img)
+
+
     }
 
 }
